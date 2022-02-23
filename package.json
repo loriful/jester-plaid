@@ -1,0 +1,27 @@
+{
+  "name": "jester-plaid",
+  "version": "1.0.0",
+  "description": "command line app to generate html on employees",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/loriful/jester-plaid.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/loriful/jester-plaid/issues"
+  },
+  "homepage": "https://github.com/loriful/jester-plaid#readme",
+  "dependencies": {
+    "inquirer": "^8.2.0",
+    "jest": "^27.5.1"
+  }
+}
