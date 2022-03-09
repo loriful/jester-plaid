@@ -1,11 +1,10 @@
 {
   "name": "jester-plaid",
   "version": "1.0.0",
-  "description": "command line app to generate html on employees",
+  "description": "",
   "main": "index.js",
   "directories": {
-    "lib": "lib",
-    "test": "tests"
+    "lib": "lib"
   },
   "scripts": {
     "test": "jest"
@@ -14,6 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/loriful/jester-plaid.git"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
