@@ -66,125 +66,10 @@ const mgrQuestion = () => {
           }
         }
       }
-    ])
+    ]);
     
   };  // mgrQuestion
 
-const engQuestion = () => {
-  // gather tne engineer data
-  return inquirer.prompt([
-      {
-          type: 'input',
-          name: 'employee',        
-          message: "What is the Engineer's name? (Required)",
-          validate: value => {       // required field
-            if (value) {
-              return true;
-            } else {
-              console.log("Please enter the required name.");
-              return false;
-            }
-          }
-      },
-      {
-          type: 'input',
-          name: 'id',
-          message: "What is the Engineer's id number? (Required)",
-          validate: value => {      // required field
-            if (value) {
-              return true;
-            } else {
-              console.log('Please enter the required id.');
-              return false;
-            }
-          }   
-      },
-      {
-          type: 'input',
-          name: 'email',
-          message: "What is the Engineer's email address? (Required)",
-          validate: mailInput => {
-              if (mailInput.includes("@")) {        // check validity
-                return true;
-              } else {
-                console.log('Please enter a valid e-mail address.');
-                return false;
-            }
-          } 
-      },   
-      {
-        type: 'input',
-        name: 'gitname',
-        message: "What is the Engineer's github user name. (Required)",
-        validate: value => {        // required field
-          if (value) {
-            return true;
-          } else {
-            console.log('Please the REQUIRED github user name.');
-            return false;
-          }
-        }
-      }
-  ]); // prompt
-}; // engQuestion
-
-const intQuestion = () => {
-  // gather the intern data
-  return inquirer.prompt([
-    {
-      type: 'input',
-      name: 'employee',        
-      message: "What is the Intern's name? (Required)",
-      validate: value => {       // required field
-        if (value) {
-          return true;
-        } else {
-          console.log("Please enter the required name.");
-          return false;
-        }
-      }
-  },
-  {
-      type: 'input',
-      name: 'id',
-      message: "What is the Intern's id number? (Required)",
-      validate: value => {      // required field
-        if (value) {
-          return true;
-        } else {
-          console.log('Please enter the required id.');
-          return false;
-        }
-      }   
-  },
-  {
-      type: 'input',
-      name: 'email',
-      message: "What is the Intern's email address? (Required)",
-      validate: mailInput => {
-          if (mailInput.includes("@")) {        // check validity
-            return true;
-          } else {
-            console.log('Please enter a valid e-mail address.');
-            return false;
-        }
-      } 
-  },  
-    {
-      type: 'input',
-      name: 'school',
-      message: "What is the Intern's school name. (Required)",
-      validate: value => {        // required field
-        if (value) {
-          return true;
-        } else {
-          console.log('Please enter the REQUIRED school.');
-          return false;
-        }
-      }
-    }
-  ]); // prompt
-}; // intQuestion
 function writeToFile(fileOut, data) {
 
   return new Promise((resolve, reject) => {
@@ -216,16 +101,131 @@ function ask() {
   ]);
   }; // doWhat
 
+  const engQuestion = () => {
+    // gather tne engineer data
+    return inquirer.prompt([
+        {
+            type: 'input',
+            name: 'employee',        
+            message: "What is the Engineer's name? (Required)",
+            validate: value => {       // required field
+              if (value) {
+                return true;
+              } else {
+                console.log("Please enter the required name.");
+                return false;
+              }
+            }
+        },
+        {
+            type: 'input',
+            name: 'id',
+            message: "What is the Engineer's id number? (Required)",
+            validate: value => {      // required field
+              if (value) {
+                return true;
+              } else {
+                console.log('Please enter the required id.');
+                return false;
+              }
+            }   
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: "What is the Engineer's email address? (Required)",
+            validate: mailInput => {
+                if (mailInput.includes("@")) {        // check validity
+                  return true;
+                } else {
+                  console.log('Please enter a valid e-mail address.');
+                  return false;
+              }
+            } 
+        },   
+        {
+          type: 'input',
+          name: 'gitname',
+          message: "What is the Engineer's github user name. (Required)",
+          validate: value => {        // required field
+            if (value) {
+              return true;
+            } else {
+              console.log('Please the REQUIRED github user name.');
+              return false;
+            }
+          }
+        }
+    ]); // prompt
+  }; // engQuestion
+  
+  const intQuestion = () => {
+    // gather the intern data
+    return inquirer.prompt([
+      {
+        type: 'input',
+        name: 'employee',        
+        message: "What is the Intern's name? (Required)",
+        validate: value => {       // required field
+          if (value) {
+            return true;
+          } else {
+            console.log("Please enter the required name.");
+            return false;
+          }
+        }
+    },
+    {
+        type: 'input',
+        name: 'id',
+        message: "What is the Intern's id number? (Required)",
+        validate: value => {      // required field
+          if (value) {
+            return true;
+          } else {
+            console.log('Please enter the required id.');
+            return false;
+          }
+        }   
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: "What is the Intern's email address? (Required)",
+        validate: mailInput => {
+            if (mailInput.includes("@")) {        // check validity
+              return true;
+            } else {
+              console.log('Please enter a valid e-mail address.');
+              return false;
+          }
+        } 
+    },  
+      {
+        type: 'input',
+        name: 'school',
+        message: "What is the Intern's school name. (Required)",
+        validate: value => {        // required field
+          if (value) {
+            return true;
+          } else {
+            console.log('Please enter the REQUIRED school.');
+            return false;
+          }
+        }
+      }
+    ]); // prompt
+  }; // intQuestion
+  
      doWhat()
      .then((result) => {
-      console.log('before switch' + result.next.toString());
+      
         switch (result.next.toString()) {
           case 'Add Engineer':
             engQuestion()
             .then (engineer => {
-              console.log('in add eng');
-              team.push(new Engineer(engineer));
-              ask();
+                team.push(new Engineer(engineer));
+                ask();
             });
             break;
             
@@ -236,6 +236,7 @@ function ask() {
               ask();
             });
             break;
+
           default:
             // build the html and write to output
             writeToFile(fileName, buildHTML(team));
@@ -248,11 +249,11 @@ function ask() {
 
 console.log(instructions());                   // instruct the user
 
-mgrQuestion()                              // get the manager data
+mgrQuestion()                                 // get the manager data
     .then((manager) => { 
         team.push(new Manager(manager));    // build the array
-        console.log('next we ask');
-        ask();                            // ask for more
+  
+        ask();                            // ask for more, then write the output
     })         
     .catch(err => {                     // display error, if any
         console.log(err);
