@@ -70,22 +70,6 @@ const mgrQuestion = () => {
     
   };  // mgrQuestion
 
-function writeToFile(fileOut, data) {
-
-  return new Promise((resolve, reject) => {
-      fs.writeFile(fileOut, data, err => {
-          if (err) {
-              reject(err);
-              return;
-          }
-          resolve({
-              ok: true,           // tell the user where the file is
-              message: '\n \n ======================================== \n Your README was successfully created at this location: ' + fileOut + '\n \n ========================================'
-          });
-      });
-  });
-}; // end function writeToFile
-
 function ask() {
   // add employees from team until user signal's complete then build the html & write
 
@@ -217,6 +201,24 @@ function ask() {
     ]); // prompt
   }; // intQuestion
   
+  function writeToFile(fileOut, data) {
+
+    return new Promise((resolve, reject) => {
+        fs.writeFile(fileOut, data, err => {
+            if (err) {
+                reject(err);
+                return;
+            }
+            resolve({
+                ok: true,           // tell the user where the file is
+                message: '\n \n ======================================== \n Your README was successfully created at this location: ' + fileOut + '\n \n ========================================'
+            });
+        });
+    });
+  }; // end function writeToFile
+  
+  //////////////////////////////////////////////////////////////////
+
      doWhat()
      .then((result) => {
       
@@ -243,6 +245,7 @@ function ask() {
             break;
         }; // switch
       }); // then
+      
   }; // ask
 
 ////////////////////////////////////////////////////////////////////
