@@ -6,10 +6,9 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const instructions = require('./lib/instructions');
-const buildHTML = require('./lib/buildHTML');
-
-const fileName = './dist/index.html';
-const team = [];
+const buildHTML = require('./lib/buildHTML');    
+const fileName = './dist/index.html';             // the output of the app
+const team = [];                                // the gathered data
 
 const mgrQuestion = () => {
   // gather the manager data
@@ -129,7 +128,7 @@ function ask() {
         },   
         {
           type: 'input',
-          name: 'gitname',
+          name: 'github',
           message: "What is the Engineer's github user name. (Required)",
           validate: value => {        // required field
             if (value) {
@@ -219,29 +218,32 @@ function ask() {
   
   //////////////////////////////////////////////////////////////////
 
-     doWhat()
+     doWhat()             // prompt the user for what's next (add more or quit)
      .then((result) => {
       
         switch (result.next.toString()) {
           case 'Add Engineer':
-            engQuestion()
+            engQuestion()                            // get the engr data
             .then (engineer => {
-                team.push(new Engineer(engineer));
-                ask();
+                team.push(new Engineer(engineer));  // add data to team
+                ask();                              // recur for next step
             });
             break;
             
           case 'Add Intern':
-            intQuestion()
+            intQuestion()                           // get the intern data
             .then (intern => {
-              team.push(new Intern(intern));
-              ask();
+              team.push(new Intern(intern));       // add data to team
+              ask();                              // recur for next step
             });
             break;
 
           default:
             // build the html and write to output
-            writeToFile(fileName, buildHTML(team));
+            writeToFile(fileName, buildHTML(team))
+            .then(writeFileResponse => {            // inform user where the file is
+              console.log(writeFileResponse.message);
+            });
             break;
         }; // switch
       }); // then
@@ -254,10 +256,7 @@ console.log(instructions());                   // instruct the user
 
 mgrQuestion()                                 // get the manager data
     .then((manager) => { 
-        team.push(new Manager(manager));    // build the array
+        team.push(new Manager(manager));    // add the mgr as the first array element
   
         ask();                            // ask for more, then write the output
-    })         
-    .catch(err => {                     // display error, if any
-        console.log(err);
     });
