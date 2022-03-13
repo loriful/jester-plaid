@@ -1,9 +1,11 @@
 # **Team Profile Generator**
   
 ## **The Repository**
-### This respository:  https://github.com/loriful/jester-plaid
+#### https://github.com/loriful/jester-plaid
 
-### Deployment:  https://loriful.github.io/jester-plaid/  
+## **Deployment:**
+
+<a href="https://watch.screencastify.com/v/V2c23dUAXnHw7rfAMb1Y" alt="Application Walk Through Video">**Walk Through Video**</a>
   
 ## **Description**
 Challenge 10:  Command-line application that takes in information about employees on a software engineering team and generates an HTML webpage that displays summaries for each person.
@@ -22,9 +24,9 @@ Challenge 10:  Command-line application that takes in information about employee
 </p>
 
 ## **Installation**
-- Requires Node, NPM Inquirer and jest.
+- Requires Node, NPM Inquirer and jest packages.
 ## **Usage**
-- Run with Node from the command line to enter data used to automatically build HTML file.
+- Run with "node index.js" from the command line.  Follow prompts to enter data used to automatically build HTML file.
 
 ## **Questions**
 ### Github Profile:  https://github.com/loriful
